@@ -1,0 +1,12 @@
+<nav>{% render 'header', logo_image: section.settings.logo_image %}</nav>
+
+{% schema %}
+  {
+    "name": "Navbar",
+    "settings": [
+      {"type": "image_picker", "id": "logo_image", "label": "Logo Image"}
+    ],
+    "presets": []
+  }
+{% endschema %}
+

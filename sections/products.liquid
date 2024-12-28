@@ -1,0 +1,120 @@
+<section class="products">
+  <h1 class="line">PRODUCTS</h1>
+  <div class="collection-container">
+    <div class="products-wrapper">
+      {% for collection in collections %}
+        <div class="collection-card">
+          <img width="250" height="300" loading="lazy" src="{{ 'product-1.png' | asset_url }}">
+          <img width="250" height="300" loading="lazy" src="{{ 'product-2.png' | asset_url }}">
+          <img width="250" height="300" loading="lazy" src="{{ 'product-3.png' | asset_url }}">
+          <img width="250" height="300" loading="lazy" src="{{ 'product-4.png' | asset_url }}">
+          
+        </div>
+      {% endfor %}
+    </div>
+
+    {% comment %}
+      <div class="scroll-buttons">
+        <button class="scroll-left">&lt;</button>
+        <button class="scroll-right">&gt;</button>
+      </div>
+    {% endcomment %}
+  </div>
+</section>
+
+<style>
+  .products {
+    background: {{ section.settings.background }};
+    color: {{ section.settings.text_color }};
+    padding: 10px;
+    position: relative;
+  }
+.line {
+   font-family: 'Poplin', sans-serif;
+   text-align: center;
+   font-size: 30px;
+}
+.line::before, .line::after {
+    display: inline-block;
+    content: "";
+    border-top: .3rem solid black;
+    width: 4rem;
+    margin: 0 1rem;
+    transform: translateY(-150%);
+}
+  .collection-container {
+    position: relative;
+    overflow-x: scroll;
+  }
+
+  .products-wrapper {
+    display: flex;
+    transition: transform 0.3s ease; /* Add smooth transition effect */
+    justify-content: center;
+  }
+
+  .collection-card {
+    padding: 5px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row; /* items side by side */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+  }
+.collection-card img {
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+.collection-card img:hover {
+  transform: scale(1.1);
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const wrapper = document.querySelector('.products-wrapper');
+    const scrollLeftButton = document.querySelector('.scroll-left');
+    const scrollRightButton = document.querySelector('.scroll-right');
+
+    scrollLeftButton.addEventListener('click', function () {
+      wrapper.scrollBy({
+        left: -300, // Adjust based on your card width
+        behavior: 'smooth',
+      });
+    });
+
+    scrollRightButton.addEventListener('click', function () {
+      wrapper.scrollBy({
+        left: 300, // Adjust based on your card width,
+        behavior: 'smooth',
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "products",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#F4F4F4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "products"
+    }
+  ]
+}
+{% endschema %}

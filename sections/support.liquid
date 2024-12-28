@@ -1,0 +1,71 @@
+<section class="support">
+  <div class="shipping">
+    <p class="text">FREE SHIPPING</p>
+    <p>Free shipping on all US order or order above $100</p>
+  </div>
+  <div class="support-info">
+    <p class="text">SUPPORT 24/7</p>
+    <p>Contact us 24 hours a day, 7 days a week</p>
+  </div>
+  <div class="return">
+    <p class="text">30 DAYS RETURN</p>
+    <p>Simply return it within 30 days for an exchange.</p>
+  </div>
+  <div class="payment">
+    <p class="text">100% PAYMENT SECURE</p>
+    <p>We ensure secure payment with PEV</p>
+  </div>
+</section>
+
+
+
+<style>
+  .support {
+  display: flex;
+  justify-content: space-between; 
+  align-items: flex-start; 
+  gap: 20px; 
+  padding: 20px;
+  font-family:'poplin', sans-serif;  
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.support > div {
+  flex: 1; 
+  text-align: center; 
+  padding: 10px;
+}
+.support p {
+  font-size:14px;
+}
+</style>
+
+
+{% schema %}
+{
+  "name": "all-products",
+  "settings": [
+    {
+      "type": "color",
+      "id": "background",
+      "label": "Background",
+      "default": "#F4F4F4"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "all-products"
+    }
+  ]
+}
+{% endschema %}

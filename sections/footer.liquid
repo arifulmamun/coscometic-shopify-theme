@@ -1,0 +1,146 @@
+<footer class="footer-main">
+  <div class="footer-sec-1">
+    {%- if section.blocks.size == 0 -%}
+      <div class="footer-contact-info"> 
+         <a href="/" class="logo-link">
+            <img class="footer-logo" width="40" height="40" loading="lazy" src="{{ 'logo.png' | asset_url }}" alt="Logo">
+             <span class="brand-name">coscometic</span>
+         </a>
+        <p class="footer-address">184 Main Rd E, St Albans VIC 3021, Australia</p> 
+        <p class="footer-email">E: <a href="mailto:info@example.com">info@example.com</a></p> 
+        <p class="footer-phone">P: <a href="tel:+1234567890">+1234567890</a></p> 
+            <div class="footer-social-icons"> 
+              <a href="https://facebook.com"><img width="20" height="20" loading="lazy" src="{{ 'fb.png' | asset_url }}" alt="Facebook"></a> 
+              <a href="https://twitter.com"><img width="20" height="20" loading="lazy" src="{{ 'tw.png' | asset_url }}" alt="Twitter"></a> 
+              <a href="https://instagram.com"><img width="20" height="20" loading="lazy" src="{{ 'inst.png' | asset_url }}" alt="Instagram"></a> 
+            </div>
+      </div>
+      <div class="category">
+        <p class="category-title">Category</p>
+        <p>Men</p>
+        <p>Women</p>
+      </div>
+      <div class="products">
+        <p class="product-title">Products</p>
+        <p>Cleaner</p>
+        <p>Cream</p>
+        <p>Gel</p>
+        <p>Lotion</p>
+        <p>Toner</p>
+      </div>
+
+      <div class="information">
+        <p class="information-title">Information</p>
+        <p>Shipping & Return</p>
+        <p>Terms & Condition</p>
+        <p>Privacy Policy</p>
+        <p>Faq</p>
+      </div>
+
+    {% else %}
+      {% comment %}
+        <div>
+          {% for block in section.blocks %}
+            <li>
+              <a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a>
+            </li>
+          {% endfor %}
+        </div>
+      {% endcomment %}
+      {% for block in section.blocks %}
+        <div>
+          <li><a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a></li>
+          <li><a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a></li>
+          <li><a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a></li>
+          <li><a href="{{ block.settings.link }}">{{ block.settings.text | escape }}</a></li>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="footer-sec-2">
+    <p>All Rights Reserved © 2024 coscometic - Developed by Arifulwebwise</p>
+  </div>
+</footer>
+
+<style>
+  .footer-main {
+    background: {{ section.settings.background }};
+    color: {{ section.settings.text_color }};
+    padding: 10px;
+    font-family: 'Poplin', sans-serif;
+  }
+.footer-sec-1 {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+.footer-contact-info { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: flex-start; 
+  gap: 10px; 
+} 
+.logo-link { 
+  display: flex; 
+  align-items: center; 
+  text-decoration: none; 
+  color: inherit; 
+}
+.footer-address, .footer-email, .footer-phone { 
+  margin: 0; 
+  font-size: 14px; 
+} 
+.footer-email a, .footer-phone a { 
+  text-decoration: none; 
+  color: inherit; 
+} 
+.footer-social-icons { 
+  display: flex; 
+  gap: 10px;
+}
+.products {
+  background: {{ section.settings.background }}; 
+  margin-top: -10px;
+}  
+.category-title, .product-title, .information-title { 
+  font-weight: 700; 
+  font-size: 14px; 
+  font-family: 'Poppins', sans-serif; 
+}
+.category > p, .products > p, .information > p {
+  font-size: 14px;
+}
+
+  
+.footer-sec-2 {
+    display: flex;  
+}
+.footer-sec-2 p {  
+    font-size:12px;
+    padding: 10px;
+    margin-left:80px;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {"type": "color","id": "background","label": "Background","default": "#000000"},
+    {"type": "color","id": "text_color","label": "Text","default": "#F4F4F4"}
+  ],
+  "blocks": [
+    {
+      "name": "Links",
+      "type": "links",
+      "settings": [
+        {"type": "text","id": "text","label": "Text","default": "link"},
+        {"type": "url","id": "link","label": "Link"}
+      ]
+    }
+  ],
+  "presets": [
+    {"name": "footer"}
+  ]
+}
+{% endschema %}
