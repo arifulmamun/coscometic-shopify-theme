@@ -10,7 +10,7 @@ Welcome to the **Coscometic Shopify Theme**! This is a custom theme developed fo
 - **Product Details**: Detailed product pages with images, descriptions, and reviews.
 - **Navigation Menu**: Easy-to-use navigation menu for seamless browsing.
 - **Footer**: Customizable footer with contact information, social media links, and additional resources.
-- **Responsive Layout**: Fully responsive layout that looks great on all devices, from desktops to mobile phones.
+
 
 ## Installation
 
